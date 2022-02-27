@@ -1,3 +1,59 @@
+*/     			Name : Mehul butta 
+			Chitkara Institute of Engineering And Technology, Punjab
+			
+			this gives incorrect answer for only one test case*/
+
+#include<bits/stdc++.h>
+using namespace std;
+
+
+int main(){
+    int n;cin>>n;
+    int prices[n];
+    for(int i=0;i<n;i++){
+        cin>>prices[i];
+    }
+    
+    for(int i=1;i<n;i++){
+        prices[i]+= prices[i-1];
+    }
+    
+    
+    int d;
+    cin>>d;
+    while(d>0){
+        int money;
+        cin>>money;
+        int ans1 =0 , ans2 = 0;
+        int l =0, r = n-1;
+        while(l <= r){
+            int mid = (l+r)/2;
+            if(prices[mid]  <= money  ){
+                ans2 = money - prices[mid];
+                ans1 = mid+1;
+                l = ans1;
+            }
+            
+            else
+                r = mid -1;
+            
+        }
+        
+        if(prices[0] > money)
+            ans2 = money;
+        
+        cout<<ans1<<" "<<ans2<<endl;
+        
+        d--;
+    }
+    
+    return 0;
+}
+
+
+
+
+
 */
 		
 			Name: Bhavya Tyagi
